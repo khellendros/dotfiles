@@ -1,5 +1,9 @@
-set nocompatible
+set encoding=utf-8
+set nocompatible     "always vim mode
 filetype off
+set hlsearch         "search highlighting
+set nosi             "Disable smart indenting
+set ignorecase       "ignore case when searching
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -28,7 +32,11 @@ autocmd FileType python
 	\ setl shiftwidth=4
 	\ tabstop=4
 	\ softtabstop=4
-	\ textwidth=79
 	\ expandtab
 
-set encoding=utf-8
+"Open where last edited
+autocmd BufReadPost *
+	\ if ! exists("g:leave_my_cursor_position_alone") |
+	\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+	\ exe "normal g'\"" |
+	\ endif | endif
