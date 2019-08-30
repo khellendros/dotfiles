@@ -11,6 +11,18 @@ call vundle#end()
 
 filetype plugin indent on
 
+"for switching between python syntax versions
+
+
+function Py3()
+	    let g:syntastic_python_python_exec = '/usr/bin/python3.6'
+endfunction
+function Py2()
+	  let g:syntastic_python_python_exec = '/usr/bin/python2.7'
+endfunction
+call Py3()   " default to Py3 because I try to use it when possible
+
+
 
 autocmd FileType python
 	\ setl shiftwidth=4
