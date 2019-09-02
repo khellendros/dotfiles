@@ -6,6 +6,8 @@ set nosi             "Disable smart indenting
 set ignorecase       "ignore case when searching
 set background=dark  "fix for colors in tmux.  don't know why this worked but it does.
 set t_Co=256
+syntax on
+colorscheme torte 
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
