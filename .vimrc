@@ -11,7 +11,7 @@ colorscheme torte
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
-"Vundle Plugins
+"Vundle Plugins"
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'syntastic'
