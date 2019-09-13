@@ -1,2 +1,2 @@
 set disassembly intel
-source ~/dotfiles/pedia.py
+source ~/dotfiles/peda/peda.py
