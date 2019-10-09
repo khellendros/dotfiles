@@ -422,6 +422,7 @@ settings = {
     nick = "kevinh";
   };
   "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { theme = "neutralorange"; };
 };
 ignores = (
   {
