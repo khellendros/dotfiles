@@ -21,3 +21,5 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 rm ~/.gdbinit
 ln -s ~/dotfiles/.gdbinit ~/.gdbinit
 
+rm ~/.gitconfig
+ln -s ~/dotfiles/.gitconfig ~/.gitconfig
