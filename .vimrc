@@ -7,6 +7,7 @@ set ignorecase       "ignore case when searching
 set background=dark  "fix for colors in tmux.  don't know why this worked but it does.
 set number
 set t_Co=256
+
 syntax on
 colorscheme torte 
 
