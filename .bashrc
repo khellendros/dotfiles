@@ -123,6 +123,6 @@ fi
 #pings class C subnet ranges to check if a host is up -- assuming ICMP isn't blocked.  TODO: Add support for class A and B
 function subping {  
 	time ( for i in $(seq 1 254) ; do 
-		( ping -n -c 1 -w 1 $1.$i > /dev/null 2>&1 && printf "%-16s is up.\n" $1.$i ) &
+		( ping -n -c 1 -w 1 $1.$i > /dev/null 2>&1 && printf "%-16s\n" $1.$i ) &
 	done ; wait ; echo )	
 }
