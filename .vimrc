@@ -9,7 +9,7 @@ set number
 set t_Co=256
 
 syntax on
-colorscheme murphy 
+colorscheme torte
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
