@@ -15,8 +15,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 "Vundle Plugins"
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'syntastic'
+Plugin 'https://github.com/ycm-core/YouCompleteMe.git'
+Plugin 'https://github.com/vim-scripts/syntastic.git'
 call vundle#end()
 
 filetype plugin indent on
