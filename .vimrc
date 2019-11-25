@@ -11,6 +11,11 @@ set t_Co=256
 syntax on
 colorscheme torte
 
+if has('gui_running')
+	colorscheme evening 
+	set guifont=Monospace\ 16
+endif
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
 "Vundle Plugins"
