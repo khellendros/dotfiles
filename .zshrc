@@ -2,16 +2,6 @@ export GOPATH="/home/khellendros/code/go"
 # ~/.zshrc file for zsh non-login shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
-# Load version control information
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-# Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats 'on branch %b'
-
-# Set up the prompt (with git branch name)
-#setopt PROMPT_SUBST
-
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
@@ -89,7 +79,6 @@ fi
 
 if [ "$color_prompt" = yes ]; then
 	PROMPT=$'%F{%(#.blue.yellow)}┌──▶${debian_chroot:+($debian_chroot)──}⟪%B%F{%(#.red.blue)}%n%(#..@)%F{%(#.blue.green)}%m%b%F{%(#.blue.yellow)}⟫⌁⟦%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.yellow)}⟧\n└──%B%(#.%F{red}#.%F{blue}$)%b%F{reset}'
-	RPROMPT=\$vcs_info_msg_0_
 	#RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
     # enable syntax-highlighting
@@ -215,3 +204,10 @@ function subping {
 		( ping -n -c 1 -w 1 $1.$i > /dev/null 2>&1 && printf "%-16s\n" $1.$i ) & 
 	done ; wait ; echo ) 
 }
+
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats '%b'
