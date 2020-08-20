@@ -1,3 +1,4 @@
+export GOPATH="/home/khellendros/code/go"
 # ~/.zshrc file for zsh non-login shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
@@ -188,6 +189,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias rm='rm -i'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -195,3 +197,10 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     # change suggestion color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
+
+#pings class C subnet ranges to check if a host is up -- assuming ICMP isn't blocked.
+function subping {
+	time ( for i in $(seq 1 254) ; do
+		( ping -n -c 1 -w 1 $1.$i > /dev/null 2>&1 && printf "%-16s\n" $1.$i ) & 
+	done ; wait ; echo ) 
+}
