@@ -2,6 +2,16 @@ export GOPATH="/home/khellendros/code/go"
 # ~/.zshrc file for zsh non-login shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats 'on branch %b'
+
+# Set up the prompt (with git branch name)
+#setopt PROMPT_SUBST
+
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
@@ -78,8 +88,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PROMPT=$'%F{%(#.blue.yellow)}┌──${debian_chroot:+($debian_chroot)──}(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.yellow)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.yellow)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
-    RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
+	PROMPT=$'%F{%(#.blue.yellow)}┌──▶${debian_chroot:+($debian_chroot)──}⟪%B%F{%(#.red.blue)}%n%(#..@)%F{%(#.blue.green)}%m%b%F{%(#.blue.yellow)}⟫⌁⟦%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.yellow)}⟧\n└──%B%(#.%F{red}#.%F{blue}$)%b%F{reset}'
+	RPROMPT=\$vcs_info_msg_0_
+	#RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
     # enable syntax-highlighting
     if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && [ "$color_prompt" = yes ]; then
