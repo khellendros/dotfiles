@@ -37,7 +37,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=2000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
@@ -78,7 +78,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	PROMPT=$'%F{%(#.blue.yellow)}┌──▶${debian_chroot:+($debian_chroot)──}⟪%B%F{%(#.red.blue)}%n%(#..@)%F{%(#.blue.green)}%m%b%F{%(#.blue.yellow)}⟫⌁⟦%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.yellow)}⟧\n└──%B%(#.%F{red}#.%F{blue}$)%b%F{reset}'
+	PROMPT=$'%F{%(#.blue.yellow)}┌──▶${debian_chroot:+($debian_chroot)──}⟪%F{%(#.red.blue)}%n%(#..@)%F{%(#.blue.green)}%m%b%F{%(#.blue.yellow)}⟫⌁⟦%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.yellow)}⟧\n└──%B%(#.%F{red}#.%F{blue}$)%b%F{reset}'
 	#RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
     # enable syntax-highlighting
