@@ -206,6 +206,15 @@ function subping {
 	done ; wait ; echo ) 
 }
 
+function downloadsploit {
+	for e in $(searchsploit $1 $2 -w -t | grep http | cut -f 2 -d "|")
+	do
+		exp_name=$(echo $e | cut -d "/" -f 5)
+		url=$(echo $e | sed 's/exploits/raw/')
+		wget -q --no-check-certificate $url -O $exp_name
+	done
+}
+
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
