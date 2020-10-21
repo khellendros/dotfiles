@@ -1,5 +1,5 @@
 export GOPATH="/home/khellendros/code/go"
-export PATH=$PATH:$GOPATH/bin:/home/khellendros/code/python/ctfrecon
+export PATH=$PATH:$GOPATH/bin:/home/khellendros/code/python/ctfrecon:/home/khellendros/.local/bin
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -128,4 +128,8 @@ function subping {
 	time ( for i in $(seq 1 254) ; do 
 		( ping -n -c 1 -w 1 $1.$i > /dev/null 2>&1 && printf "%-16s\n" $1.$i ) &
 	done ; wait ; echo )	
+}
+
+function pyserve {
+	python -m SimpleHTTPServer $1
 }
