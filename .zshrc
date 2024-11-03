@@ -187,9 +187,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -lFh'
+alias la='ls -AFh'
+alias l='ls -CFh'
 alias rm='rm -i'
 
 # enable auto-suggestions based on the history
