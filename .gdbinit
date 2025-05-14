@@ -6,4 +6,4 @@ set disassembly intel
 #break *0x400710
 #layout asm
 #layout regs
-source /home/khellendros/dotfiles/pwndbg/gdbinit.py
+#source /home/khellendros/dotfiles/pwndbg/gdbinit.py
