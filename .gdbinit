@@ -7,3 +7,4 @@ set disassembly intel
 #layout asm
 #layout regs
 #source /home/khellendros/dotfiles/pwndbg/gdbinit.py
+source /usr/share/gdb-peda/peda.py
